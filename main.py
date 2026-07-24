@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 
 # Load model and data
-model = pickle.load(open(r"d:\Car Price Prediction\LinearRegression.pkl", "rb"))
+model = pickle.load(open("LinearRegression.pkl", "rb"))
 car = pd.read_csv("Car_Dekho_Cleaned.csv")
 
 st.set_page_config(page_title="Car Price Predictor", layout="centered")
