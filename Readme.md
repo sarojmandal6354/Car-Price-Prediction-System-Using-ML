@@ -1,10 +1,10 @@
-# 🚗 Car Price Prediction System
+#  Car Price Prediction System
 
 A machine learning web app that predicts the resale price of a used car based on its brand, model, manufacturing year, fuel type, and kilometers driven. Built with **scikit-learn** for modeling and **Streamlit** for the interactive UI.
 
 ---
 
-## 📌 Overview
+##  Overview
 
 Buying or selling a used car often comes down to one hard question: *"What's it actually worth?"* This project answers that using historical listing data from CarDekho, training a linear regression model that learns pricing patterns across thousands of real car listings.
 
@@ -12,31 +12,31 @@ The end result is a simple web app where a user selects a car's details and inst
 
 ---
 
-## ✨ Features
+## Features
 
-- 🧹 **Automated data cleaning** — standardizes column names, merges rare fuel categories, removes duplicates, and derives a `company` column from the car name
-- 🤖 **ML pipeline** — one-hot encodes categorical features and trains a `LinearRegression` model inside a single `sklearn` `Pipeline`
-- 🎯 **Optimized train/test split** — tests 1000 random splits and keeps the one yielding the best R² score
-- 📊 **Model evaluation visualization** — plots R² score across all 1000 trained models and highlights the best-performing one
-- 🖥️ **Interactive Streamlit app** — cascading dropdowns (Company → Model → Year → Fuel Type) plus a kilometers-driven input for real-time price prediction
+-  **Automated data cleaning** — standardizes column names, merges rare fuel categories, removes duplicates, and derives a `company` column from the car name
+-  **ML pipeline** — one-hot encodes categorical features and trains a `LinearRegression` model inside a single `sklearn` `Pipeline`
+-  **Optimized train/test split** — tests 1000 random splits and keeps the one yielding the best R² score
+-  **Model evaluation visualization** — plots R² score across all 1000 trained models and highlights the best-performing one
+-  **Interactive Streamlit app** — cascading dropdowns (Company → Model → Year → Fuel Type) plus a kilometers-driven input for real-time price prediction
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 ├── CAR_DETAILS_FROM_CAR_DEKHO.csv   # Raw dataset (4,340 car listings)
 ├── Car_Dekho_Cleaned.csv            # Cleaned dataset used for training/inference
 ├── data_cleaning.py                 # Cleans raw data + trains & saves the model
 ├── pyplot.py                        # Trains 1000 models and visualizes R² scores
-├── main.py                          # Streamlit web app for price prediction
+├── app.py                          # Streamlit web app for price prediction
 ├── LinearRegression.pkl             # Serialized trained model pipeline
 └── README.md
 ```
 
 ---
 
-## 🧠 How It Works
+##  How It Works
 
 ### 1. Data Cleaning (`data_cleaning.py`)
 - Renames raw columns to friendlier names:
@@ -60,7 +60,7 @@ The end result is a simple web app where a user selects a car's details and inst
 - Re-trains the 1000 models independently and plots R² score vs. model number using `matplotlib`
 - Annotates the best-performing model directly on the graph
 
-### 4. Web App (`main.py`)
+### 4. Web App (`app.py`)
 - Loads the trained pipeline and cleaned dataset
 - Presents cascading dropdowns so the car model list updates based on the selected company
 - Validates that all fields are filled before prediction
@@ -68,7 +68,7 @@ The end result is a simple web app where a user selects a car's details and inst
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 ```bash
@@ -88,11 +88,11 @@ python pyplot.py
 
 ### 3. Run the web app
 ```bash
-streamlit run main.py
+streamlit run app.py
 ```
 Then open the local URL shown in your terminal (usually `http://localhost:8501`).
 
-> ⚠️ **Note:** `main.py` currently loads the model from a hardcoded path (`d:\CPP2\LinearRegression.pkl`). Update this to a relative path, e.g.:
+>  **Note:** `app.py` currently loads the model from a hardcoded path (`LinearRegression.pkl`). Update this to a relative path, e.g.:
 > ```python
 > model = pickle.load(open("LinearRegression.pkl", "rb"))
 > ```
@@ -100,7 +100,7 @@ Then open the local URL shown in your terminal (usually `http://localhost:8501`)
 
 ---
 
-## 📊 Dataset
+##  Dataset
 
 The dataset (`CAR_DETAILS_FROM_CAR_DEKHO.csv`) contains **4,340 used car listings** scraped from CarDekho, with the following raw columns:
 
@@ -114,7 +114,7 @@ The dataset (`CAR_DETAILS_FROM_CAR_DEKHO.csv`) contains **4,340 used car listing
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Python** — core language
 - **pandas / numpy** — data manipulation
